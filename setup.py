@@ -4,7 +4,7 @@
 def configuration(parent_package='',top_path=None):
     from numpy.distutils.misc_util import Configuration
     config = Configuration(parent_package,top_path)
-    config.add_extension('leaf', ['leaf/dataSpec_P5B.f90', \
+    config.add_extension('leaf', [ \
         "leaf/getdata.py","leaf/__init__.py"] )
     return config
 
