@@ -5,6 +5,7 @@ def getdata(here,dfile='dataSpec_P5B.f90'):
   '''
   grab spectral datasets from prospect file
   '''
+  import pdb;pdb.set_trace()
   try:
     lines = open(here + sep + dfile).readlines()
   except:
