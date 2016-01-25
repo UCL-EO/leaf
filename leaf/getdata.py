@@ -1,12 +1,13 @@
+#!/usr/bin/python
+# -*- coding: iso-8859-15 -*-
+
 import numpy as np
 from os import sep
-from dataSpec_P5B import dataSpec_P5B
 
-def getdata(here,dfile='dataSpec_P5B.f90'):
+def getdata(here,dfile='dataSpec_P5B.py'):
   '''
   grab spectral datasets from prospect file
   '''
-  import pdb;pdb.set_trace()
   try:
     lines = open(here + sep + dfile).readlines()
   except:

@@ -1,7 +1,11 @@
+#!/usr/bin/python
+# -*- coding: iso-8859-15 -*-
+
 import numpy as np
 import scipy.interpolate
 import getdata
 from scipy.interpolate import interp1d
+import dataSpec_P5B
 
 def trans_prosail ( N, cab, car, cbrown, cw, cm, lai, lidfa, lidfb, rsoil, psoil, \
         hspot, tts, tto, psi, typelidf):
