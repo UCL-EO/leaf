@@ -23,4 +23,4 @@ if __name__ == "__main__":
         author=author, \
         author_email = author_email, \
         configuration = configuration, version="1.0.1",\
-        packages=["leaf"],\
+        packages=["leaf"])
