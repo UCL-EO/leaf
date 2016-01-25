@@ -1,7 +1,7 @@
 import numpy as np
 from os import sep
 
-def getdata(herei,dfile='dataSpec_P5B.f90'):
+def getdata(here,dfile='dataSpec_P5B.f90'):
   '''
   grab spectral datasets from prospect file
   '''
