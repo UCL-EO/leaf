@@ -1,11 +1,18 @@
 import numpy as np
 from os import sep
 
-def getdata(here):
+def getdata(herei,dfile='dataSpec_P5B.f90'):
   '''
   grab spectral datasets from prospect file
   '''
-  lines = open(here + sep + 'dataSpec_P5B.f90').readlines()
+  try:
+    lines = open(here + sep + dfile).readlines()
+  except:
+    try:
+      lines = dataSpec_P5B.split('\n')
+    except:
+      self.error('unable to find database information in %s'%dfile)
+      self.exit()
   data = {}
   for i in xrange(len(lines)):
     if lines[i].find('nw=')>0:
