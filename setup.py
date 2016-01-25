@@ -5,7 +5,7 @@ def configuration(parent_package='',top_path=None):
     from numpy.distutils.misc_util import Configuration
     config = Configuration(parent_package,top_path)
     config.add_extension('leaf', [ \
-        "leaf/getdata.py","leaf/__init__.py"] )
+        "leaf/getdata.py",'leaf/dataSpec_P5B.py',"leaf/__init__.py"] )
     return config
 
 if __name__ == "__main__":
@@ -22,6 +22,5 @@ if __name__ == "__main__":
         description=description, \
         author=author, \
         author_email = author_email, \
-        configuration = configuration, version="1.0.0",\
+        configuration = configuration, version="1.0.1",\
         packages=["leaf"],\
-        package_data={'': ['dataSpec_P5B.f90']})
