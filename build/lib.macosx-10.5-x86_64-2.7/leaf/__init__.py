@@ -106,6 +106,7 @@ def soil(x,scale=None,trans=False):
 import numpy as np
 from getdata import getdata
 import os
+import sys
 
 '''
 Define leaf absorbing constituents
@@ -125,6 +126,10 @@ class Leaf():
     self.db = getdata(self.internal_db)
     self.data = self.db.copy()
     self.nw = self.db['refractive'].shape
+
+  def error(self,msg):
+    print msg
+    sys.exit(0)
 
   def verbose_level(self,level=0):
     self.verbose = level

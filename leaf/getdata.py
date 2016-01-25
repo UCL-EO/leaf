@@ -1,5 +1,6 @@
 import numpy as np
 from os import sep
+from dataSpec_P5B import dataSpec_P5B
 
 def getdata(here,dfile='dataSpec_P5B.f90'):
   '''
