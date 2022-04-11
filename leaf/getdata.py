@@ -3,13 +3,15 @@
 
 import numpy as np
 from os import sep
+from pathlib import Path
+
 
 def getdata(here,dfile='dataSpec_P5B.py'):
   '''
   grab spectral datasets from prospect file
   '''
   try:
-    lines = open(here + sep + dfile).readlines()
+    lines = Path(here + sep + dfile).read_text(encoding='utf-8').split('\n')
   except:
     try:
       lines = dataSpec_P5B.split('\n')
@@ -17,7 +19,7 @@ def getdata(here,dfile='dataSpec_P5B.py'):
       self.error('unable to find database information in %s'%dfile)
       self.exit()
   data = {}
-  for i in xrange(len(lines)):
+  for i in np.arange(len(lines)):
     if lines[i].find('nw=')>0:
         nw = int(lines[i].split('nw=')[1])
     if lines[i].find('DATA')>0:

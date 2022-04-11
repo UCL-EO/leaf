@@ -3,9 +3,9 @@
 
 import numpy as np
 import scipy.interpolate
-import getdata
+from leaf import getdata
 from scipy.interpolate import interp1d
-import dataSpec_P5B
+from leaf import dataSpec_P5B
 
 def trans_prosail ( N, cab, car, cbrown, cw, cm, lai, lidfa, lidfb, rsoil, psoil, \
         hspot, tts, tto, psi, typelidf):
@@ -87,15 +87,15 @@ def soil(x,scale=None,trans=False):
     result = np.zeros(x['nw'])
     for p in x['params']:
         if not p in x['spectra']:
-            if p is 'dry':
+            if p == 'dry':
               x['spectra'][p] = mod_dataspec_p5b.rsoil1\
 				-np.min(mod_dataspec_p5b.rsoil1)
               x['spectra'][p] /= x['spectra'][p].max()
-            if p is 'wet':
+            if p == 'wet':
               x['spectra'][p] = mod_dataspec_p5b.rsoil2\
 				-np.min(mod_dataspec_p5b.rsoil2)
               x['spectra'][p] /= x['spectra'][p].max()
-            if p is 'char':
+            if p == 'char':
               cchar = np.array([np.array(i.split()).astype(float) for i in charsoil.split(',')]).T
               x['spectra'][p] = \
                 scipy.interpolate.interp1d(cchar[0],cchar[1])(x['lambda'])
@@ -108,7 +108,7 @@ def soil(x,scale=None,trans=False):
 
 
 import numpy as np
-from getdata import getdata
+from leaf.getdata import getdata
 import os
 import sys
 
