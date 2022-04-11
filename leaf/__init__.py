@@ -125,14 +125,14 @@ class Leaf():
     self.errors = []
     self.internal_db = os.path.abspath(os.path.realpath(__file__))\
 		.replace('__init__.pyc','').replace('__init__.py','')
-    if verbose: print self.internal_db
+    if verbose: print(self.internal_db)
 
     self.db = getdata(self.internal_db)
     self.data = self.db.copy()
     self.nw = self.db['refractive'].shape
 
   def error(self,msg):
-    print msg
+    print(msg)
     sys.exit(0)
 
   def verbose_level(self,level=0):
@@ -176,13 +176,13 @@ class Leaf():
       self.data['lambda'] = s['lambda'] 
     
     for k in s:
-      if self.verbose: print 'considering',k
+      if self.verbose: print('considering',k)
       if len(k) > 2 and (k[0] == 'k' or k[0] == 'K'):
         k0 = k
         k = k[2:]
         kk = 'k_'+k
         if self.verbose:
-          print 'trying',k,'for',kk
+          print('trying',k,'for',kk)
         try:
           f = interp1d(s[k0][0],s[k0][1])
           self.data[kk] = f(s['lambda'])
@@ -192,7 +192,7 @@ class Leaf():
           else:
             err = 'error in spectra specification in Leaf.add_spectra() for '+k+' '+kk
             self.errors.append(err)
-            if self.verbose: print err
+            if self.verbose: print(err)
     # update
     self.nw = self.data['refractive'].shape
 
@@ -213,7 +213,7 @@ class Leaf():
       kk = 'k_' + k
       if kk in self.data:
         if self.verbose:
-          print 'found',kk,'from',k,'at',conc[k]
+          print('found',kk,'from',k,'at',conc[k])
         self.conc[kk] = conc[k]
         kvalue += conc[k] * self.data[kk]
     # it will cause issues if 0, so let it be tiny
